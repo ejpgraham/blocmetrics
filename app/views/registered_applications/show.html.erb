@@ -8,6 +8,10 @@
     <p> URL : <%= @registered_application.url %></p>
   </div>
   <div class="col-md-4">
+    <h4>Currently tracking <%= "#{@events.length}" %> events: </h4>
+    <% @events.each do |event| %>
+    <p> <%= event.first %> </p>
+    <% end %>
   </div>
 </div>
 

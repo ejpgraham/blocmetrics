@@ -1,12 +1,12 @@
 class RegisteredApplicationsController < ApplicationController
-  before_action :set_registered_application, only: [:show, :edit, :delete, :destroy, :update]
+  before_action :set_registered_application, only: [:show, :delete, :destroy]
 
   def index
     @registered_applications = RegisteredApplication.all
   end
 
   def show
-
+    @events = @registered_application.events.group_by(&:name)
   end
 
   def new
@@ -25,13 +25,6 @@ class RegisteredApplicationsController < ApplicationController
     end
   end
 
-  def edit
-
-  end
-
-  def update
-
-  end
 
   def delete
 
