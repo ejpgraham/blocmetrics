@@ -1,0 +1,6 @@
+<h2> Welcome to  <%= @user.email %>'s profile page </h2>
+
+<h4> This user has registered these applications: </h4>
+<% @user.registered_applications.all.each do |reg_app| %>
+  <div> <%= link_to reg_app.url, [@user, reg_app] %> </div>
+<% end %>

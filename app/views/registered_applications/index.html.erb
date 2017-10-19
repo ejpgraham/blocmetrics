@@ -1,0 +1,5 @@
+<% @registered_applications.each do |reg_app| %>
+  <div class="col-md-8">
+    <%= reg_app.name %> - <%= link_to reg_app.url, reg_app %>
+  </div>
+<% end %>
