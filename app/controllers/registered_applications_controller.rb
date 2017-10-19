@@ -2,7 +2,7 @@ class RegisteredApplicationsController < ApplicationController
   before_action :set_registered_application, only: [:show, :delete, :destroy]
 
   def index
-    @registered_applications = RegisteredApplication.all
+    @registered_applications = current_user.registered_applications
   end
 
   def show

@@ -10,14 +10,14 @@
 user = User.create!(
   {email: "ejpgraham@gmail.com", password: "password", password_confirmation: "password"}
 )
-user.confirm!
+user.confirm
 
 registered_apps = RegisteredApplication.create([
-  {name: "New York Times", url: "www.nytimes.com"},
-  {name: "The Onion", url: "www.theonion.com"},
-  {name: "The AVClub", url: "www.avclub.com"},
-  {name: "Google", url: "www.google.com"},
-  {name: "Penny Arcade", url: "www.penny-arcade.com"}
+  {name: "New York Times", url: "www.nytimes.com", user: user},
+  {name: "The Onion", url: "www.theonion.com", user: user},
+  {name: "The AVClub", url: "www.avclub.com", user: user},
+  {name: "Google", url: "www.google.com", user: user},
+  {name: "Penny Arcade", url: "www.penny-arcade.com", user: user}
   ])
 
 30.times do Event.create(
