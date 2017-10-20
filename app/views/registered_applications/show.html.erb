@@ -8,9 +8,9 @@
     <p> URL : <%= @registered_application.url %></p>
   </div>
   <div class="col-md-4">
-    <h4>Currently tracking <%= "#{@events.length}" %> events: </h4>
-    <%= @events %>
     <% @events.each do |event| %>
+    <h6>Currently tracking <%= "#{event.last.length}" %> events: </h6>
+
     <p> <%= event.first %> </p>
     <% end %>
   </div>
