@@ -5,6 +5,8 @@ class API::EventsController < ApplicationController
 
   def create
     registered_application = RegisteredApplication.find_by(url: request.env['HTTP_ORIGIN'])
+    # byebug
+
     render json: "Unregistered application", status: :unprocessable_entity and return unless registered_application
     @event = registered_application.events.build(event_params)
 

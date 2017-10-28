@@ -9,10 +9,9 @@
   </div>
   <div class="col-md-4">
 
-    <% @events.each do |event| %>
-        <h4>Currently tracking <%= "#{event.last.length}" %> events: </h4>
-    <p> <%= event.first %> </p>
-    <% end %>
+  <%= pie_chart @registered_application.events.group(:name).count %>
+  <p>Total events over time:</p>
+  <%= line_chart @registered_application.events.group_by_day(:created_at).count %>
   </div>
 </div>
 

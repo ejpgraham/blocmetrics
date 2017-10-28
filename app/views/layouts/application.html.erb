@@ -10,21 +10,26 @@
   <div class="navbar-brand">
     Blocmetrics
   </div>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-  <ul class="navbar-nav mr-auto">
-    <li class="nav-item"><%= link_to 'Register New Application', new_registered_application_path, :class => 'navbar-link text-secondary' %></li>
 
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item"><%= link_to 'Register New Application', new_registered_application_path, :class => 'nav-link text-secondary' %></li>
+    <li class="nav-item"><%= link_to 'Your Registered Applications', registered_applications_path, :class => 'nav-link text-secondary' %></li>
+    <% if user_signed_in? %>
+    <li class="nav-item"><%= link_to 'Edit profile', edit_user_registration_path, :class => 'nav-link' %></li>
+    <li class="nav-item"> <%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => 'nav-link' %></li>
+    <% else %>
+    <li class='nav-item'><%= link_to "Sign Up", new_user_registration_path, :class => 'nav-link' %></li>
+    <li class='nav-item'>  <%= link_to "Sign In", new_user_session_path, :class => 'nav-link'  %></li>
+    <% end %>
+    <li class='nav-item nav-link'>  Signed in as: <strong><%= current_user.email %></strong> </li>
   </ul>
-</div>
 </nav>
-<% if user_signed_in? %>
-  Signed in as: <strong><%= current_user.email %></strong> |
-  <%= button_to 'Edit profile', edit_user_registration_path, :class => 'navbar-nav' %>
-  <%= button_to "Sign Out", destroy_user_session_path, method: :delete, :class => 'navbar-nav'  %>
-<% else %>
-  <%= button_to "Sign Up", new_user_registration_path, :class => 'nav-link'  %> -
-  <%= button_to "Sign In", new_user_session_path, :class => 'nav-link'  %>
-<% end %>
+
+
+
+
+
+
 <body>
 
 <p class="notice"> <%= notice %> </p>

@@ -16,7 +16,9 @@ gem 'turbolinks'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'figaro'
 gem 'devise'
-
+gem 'chartkick'
+gem 'groupdate'
+gem 'pg'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -25,6 +27,7 @@ gem 'devise'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
 
 group :development, :test do
   gem 'byebug'
@@ -37,6 +40,5 @@ group :development, :test do
 end
 
 group :development do
-  gem 'sqlite3'
   gem 'web-console', '~> 2.0'
 end
