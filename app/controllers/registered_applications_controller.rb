@@ -21,12 +21,7 @@ class RegisteredApplicationsController < ApplicationController
       flash[:notice] = "Your application was saved."
       redirect_to action: "index"
     else
-      @errors = @registered_application.errors
-      error_log = ""
-      @errors.full_messages.each do |error|
-        error_log+=error
-      end
-      flash.now[:alert] = error_log
+      flash.now[:alert] = "Your application could not be saved."
       render :new
     end
   end
