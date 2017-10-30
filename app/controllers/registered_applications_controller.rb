@@ -15,12 +15,18 @@ class RegisteredApplicationsController < ApplicationController
 
   def create
     @registered_application = RegisteredApplication.new(registered_application_params)
+    @registered_application.user = current_user
 
     if @registered_application.save
       flash[:notice] = "Your application was saved."
       redirect_to action: "index"
     else
-      flash.now[:alert] = "Your application could not be saved."
+      @errors = @registered_application.errors
+      error_log = ""
+      @errors.full_messages.each do |error|
+        error_log+=error
+      end
+      flash.now[:alert] = error_log
       render :new
     end
   end
